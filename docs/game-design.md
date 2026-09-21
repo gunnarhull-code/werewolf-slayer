@@ -36,6 +36,8 @@
 
 Wolfsbane Bomb, Silver Buckshot, and Moonlight Lantern make up the current Secondary Weapon pool (see Weapons, Modifiers & Builds) — found during runs, not locked to any hunter.
 
+**No item is class-restricted.** Every modifier, Secondary weapon, and Active is available to every Bloodline (see Weapons, Modifiers & Builds and Active Abilities) — nothing in the draft pool checks which hunter you're playing. A Bloodline's edge is that its locked weapon starts partway upgraded already, so it reaches a given power level in fewer drafted cards than another Bloodline building toward that same level from scratch. The class identity is inherent to the starting weapon and signature cards, not a restriction on what you can later equip.
+
 - **Unlock Tracks:** each hunter has a short set of milestones only completable by playing them — a 6th signature card, an alternate weapon skin, a bio fragment advancing their story. Example, The Ranger: survive to Blood Moon → unlock *Relentless Volley* signature card; land Silver Cascade in a completed run → alternate Crossbow skin; crit-kill an Alpha Werewolf → bio fragment.
 
 ## Weapons, Modifiers & Builds
