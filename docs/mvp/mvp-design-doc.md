@@ -17,6 +17,17 @@ This prototype is a top-down, single-player horde-survival combat sandbox: a pla
 | **Discovery** | The modifier draft system should make each run's build feel like a genuine discovery — different modifier combinations should meaningfully change how the weapon plays, not just how big its numbers are. Concretely: a run should be able to find at least one *mechanical* adjustment (changes what the weapon does — trajectory, split, terminal behavior) and combine it with a *number* adjustment (changes a stat) into a combo that feels different from either alone, not just a pile of stat-up cards. |
 | **Low cognitive load** | This prototype exists specifically to test combat and the modifier system in isolation — no tutorial text, no lore, no UI complexity beyond what's needed to read the fight and pick a card. Every other system already cut in Out of Scope is partly in service of this: fewer things competing for the player's attention makes it easier to tell whether the *combat itself* is the problem when something doesn't feel good. |
 
+## Retention Principles Carried From the Full Design
+
+The full design's [Design Pillars — What Keeps Players Coming Back](../game-design.md#design-pillars--what-keeps-players-coming-back) are the guiding forces for the whole game, not something layered on after the prototype — this MVP should already read as an instance of them:
+
+- **Legible variance:** the wave draft (pick 1 of 3, drawn from the unlocked Modifier pool) is the same predictable-shape/surprising-content draft as the full design — nothing scaled down here.
+- **Compounding power, not additive power:** stacking Modifiers should read as acceleration, not a flat climb, even with just the base Modifier pool and no status layer yet — this is core to what the Discovery pillar (above) is actually testing.
+- **Meta-progression as a safety net against permadeath:** the death draft (pick 1 of 5, permanently added to future runs' pool) is this prototype's version of "a failed run still banks something" — it stays in scope specifically because it's load-bearing for the full game's retention loop, not a nice-to-have.
+- **Density as restraint, not spectacle:** the three enemy archetypes (rusher, ranged, tank) stay deliberately sparse rather than swarm-heavy — the same anti-Vampire-Survivors stance as the full design, tested here at its simplest.
+
+**Not yet testable at this scope:** *Build diversity over content volume* needs Bloodline Signature Cards and the status-effect layer (both cut, see Out of Scope) to mean anything — a single weapon and single character can't demonstrate it here. *Long runs, deliberately* is a floor/room-structure decision (also cut) — the wave loop's endless escalation is a different shape entirely and shouldn't be read as validating that pillar one way or the other.
+
 ## Audience & Marketing
 
 Not applicable at this stage — this is an internal prototype, not a release candidate, and has no target audience or storefront yet. The eventual audience/platform/monetization plan (PC via Steam, premium one-time purchase, Vampire-Survivors-adjacent roguelite audience) is defined in `game-design.md` and carries over unchanged once this prototype validates the core loop.
