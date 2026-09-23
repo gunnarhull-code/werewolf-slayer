@@ -1,6 +1,6 @@
 # Werewolf Slayer — Game Design Plan
 
-2026-09-17
+2026-09-22 22:36
 
 ## Contents
 
@@ -20,6 +20,8 @@
 ## Concept & Elevator Pitch
 
 **Werewolf Slayer** is a top-down horde-survival roguelite in the Vampire Survivors mold: a cursed hunter stands against endless waves of werewolves and their monstrous kin, armed with a primary weapon they aim themselves, backed by secondary weapons that auto-fire, in a fight built around positioning and reading enemies rather than just circling and holding a direction.
+
+**Player fantasy:** a lone hunter overwhelmed by escalating odds, surviving and growing more powerful through their own build choices rather than outside help — this is the anchor every other system in this document should serve, from combat feel to the Moon Meter's risk/reward curve to the shape of the modifier pool.
 
 **Premise:** A silver-blooded hunter is bound to a cursed forest that floods with lycanthropes every full moon. Each run pushes across 4 floors, clearing rooms picked one at a time from a route map until each floor's boss falls and the next floor opens.
 
@@ -78,6 +80,8 @@ A curated pool of physical properties on your primary weapon's projectile or eff
 | Exotic | Orbiting Fang (circles you once, then launches at the nearest enemy) · Gravity Well (impact briefly pulls nearby enemies toward it; travels slower) |
 | Impact & Damage Shape | Focused Point (no AoE at all; +3 flat damage on direct hits) · Arc Slash (damage sweeps in a narrow arc instead of a circle, hitting a line of enemies) |
 
+**Design principle — number vs. mechanical adjustments:** every card above is one of two kinds — a *number adjustment* (changes a stat: +2 speed, -1 damage) or a *mechanical adjustment* (changes what the weapon actually does: sine-wave trajectory, splitting on impact, bouncing off walls). Number adjustments are the easiest to add and balance, but a pool that leans too heavily on them risks the build feeling identical run to run regardless of which cards were drawn — a build should be recognizably different to *play*, not just bigger. The Velocity & Size category is intentionally the only pure-number-adjustment category; every other category is mechanical or a mechanical/number hybrid, and that ratio should hold as the pool grows toward its full size.
+
 ### Secondary Weapons
 
 2–3 equip slots, found during a run, always auto-fire and auto-target the nearest enemy (no aim needed).
@@ -114,6 +118,14 @@ A separate 4th card category, filling one equipped slot (a 2nd unlocks later), m
 
 Modifiers and Actives can roll at Common, Rare, or Super Rare. A higher tier isn't just a bigger number — it adds a genuinely new effect on top of the base card, and can shed or soften the base card's downside as part of that upgrade (e.g. Rare Toxic Bloom might add a secondary burst; Super Rare Toxic Bloom might also lose the base card's cooldown penalty). This still has to stay balanced card by card, not a blanket free upgrade. Drop rates are a balancing-pass question, not fixed yet.
 
+### Synergy Tiers
+
+Card synergy across a build falls into three tiers, and a healthy pool needs a mix of all three rather than leaning on just one:
+
+- **Minor synergies:** small stat interactions that reward a build without defining it — a crit-chance modifier feels better alongside Piercing Volley's extra hits, higher fire rate makes a Blight-on-hit modifier proc more often. These are the constant, low-key texture of a run.
+- **Major synergies:** cards that actively define a playstyle together, most concentrated in Bloodline Signature Cards and their capstones (see Status Effects & Builds' example builds) — a Blight build isn't just "Blight cards happen to be in the deck," it's several cards whose whole purpose is amplifying that one status. **Design rule:** avoid drifting so far toward major synergies that most drafted cards feel useless outside one specific build (the failure mode of item pools split into narrow archetypes) — every card should have *some* standalone value even off-build.
+- **Scripted synergies (future/stretch):** a specific named combo of two or more cards that triggers an explicit bonus effect when both are held together, rather than just their individual effects adding up naturally. Not designed yet, but worth keeping as a stretch goal — these reward players who recognize a set forming, and are memorable because they're rare and explicit rather than emergent.
+
 ## Status Effects & Builds
 
 A shared resource layer that almost every card interacts with — this is what turns a pile of separate cards into a real build (a Blight build, a Ward/Thorns build, a Might build), and what lets status synergy create real teamwork in 4-player co-op.
@@ -147,15 +159,15 @@ After clearing or exiting a room, the route map pauses briefly and offers 2–3 
 | Sanctuary | Uncommon | Partial heal, slower spawns |
 | Ability Cache | TBD (uncommon–rare) | Offered 2 random Actives; swap one for your current Active, or keep it — a permanent, one-way trade |
 
-**Random Events:** a separate category from the node table above — scripted encounters that can appear as a pickable option on the route map rather than a standard room type. **Cursed Voice** (Rare) is the only one designed so far: a wolf-spirit offers a curse bargain — **Accept** (power + cost + reactive dialogue), **Refuse** (small shard consolation), or **Question** (a softer boon instead). Moon-Touched gets an extra **Embrace** option (softened cost); Warded gets a **Cleanse** option (burn an existing curse instead). More Random Event types are expected but not yet designed.
+**Random Events:** a separate category from the node table above — scripted encounters that can appear as a pickable option on the route map rather than a standard room type. **Cursed Voice** (Rare) is the only one designed so far: a wolf-spirit offers a curse bargain — **Accept** (power + cost + reactive dialogue), **Refuse** (small shard consolation), or **Question** (a softer boon instead). Moon-Touched gets an extra **Embrace** option (softened cost); Warded gets a **Cleanse** option (burn an existing curse instead). This 3-option structure is a deliberate **agency** design: none of the three outcomes is strictly correct, so the choice actually has weight, and framing each option with distinct dialogue and tone (not just a plain "yes/no") makes the choice feel heavier than its mechanical effect alone would. More Random Event types are expected but not yet designed — a good design direction for future ones is **subversion**: an event that looks like a known, safe pattern (e.g. a reward chest) but occasionally breaks that pattern, the way a run's danger should never become fully predictable even to a veteran player.
 
 **Reward scaling:** checkpoint and loot rewards get juicier as you push deeper into a floor's room tree — later rooms roll better rarity odds, bigger Silver Shard payouts, and stronger node rewards (Elite Den loot, Ritual Site prizes) than the same node type early on, so the risk/reward curve keeps climbing alongside the difficulty rather than flattening out.
 
-**Build-weighted draws:** card draws (level-up drafts, Shrine offers) lean slightly toward modifiers and cards that synergize with what the player has already picked, rather than a pure uniform roll — a soft nudge, not a hard pity system, so a build can come together without being fully RNG-dependent.
+**Build-weighted draws:** card draws (level-up drafts, Shrine offers) lean slightly toward modifiers and cards that synergize with what the player has already picked, rather than a pure uniform roll — a soft nudge, not a hard pity system, so a build can come together without being fully RNG-dependent. **Open:** whether early-run drafts should also lean toward simpler, single-effect cards before introducing denser multi-clause ones later in a run — a **chunking** approach to onboarding a new player into the modifier system gradually rather than handing them the full complexity on the very first level-up — isn't decided yet.
 
 Burns, granted by Alpha Werewolf kills, are the only way to remove a card from your deck, including a curse.
 
-**Room Omens:** beyond the node-type table above, an individual room can also roll a modifier from a shared pool — **Omens** — that curses are just one entry in. Once a room's Omen is set, the route picker shows an icon on that node from **two or more spaces ahead**, so players get advance warning of what kind of room is coming without full detail yet. Other Omen types raised so far, none fully specified: a "Flood" Omen (effect TBD), and reward-boosting Omens (extra Silver Shards, extra loot — exact form TBD). **Design rule:** any debuff-flavored Omen must carry reward comparable to or greater than a pure-benefit Omen, so risk and reward stay balanced across the whole Omen pool, not just within Curse Omens.
+**Room Omens:** beyond the node-type table above, an individual room can also roll a modifier from a shared pool — **Omens** — that curses are just one entry in. Once a room's Omen is set, the route picker shows an icon on that node from **two or more spaces ahead** — a deliberate **signposting** device, giving advance warning of what kind of room is coming (without full detail yet) the same way a lit doorway or a warning color reads at a glance without needing text. Other Omen types raised so far, none fully specified: a "Flood" Omen (effect TBD), and reward-boosting Omens (extra Silver Shards, extra loot — exact form TBD). **Design rule:** any debuff-flavored Omen must carry reward comparable to or greater than a pure-benefit Omen, so risk and reward stay balanced across the whole Omen pool, not just within Curse Omens.
 
 **Curse Omen** (one Omen type): not a per-transition guarantee — each room independently rolls a percentage chance of containing a guaranteed curse (exact odds TBD). Reaching the end of a curse room presents it as a standard card-reward screen — a draft of **3 curse options to choose from**, the same format as a level-up draft, not a single forced card. The curses available across a run are drawn from one **predrawn deck**, generated at run start; in co-op, the deck is shared across the whole party, and a chosen curse can affect everyone, not just the player who picked it. Severity still decides whether a buff comes attached — a major drawback pairs with a real power buff, a minor drawback doesn't.
 
@@ -166,19 +178,68 @@ Burns, granted by Alpha Werewolf kills, are the only way to remove a card from y
 - **Base enemies:** Feral Wolf (fast, weak, baseline) · Werewolf (a Wolf that's turned as a room's Day → Night cycle advances — tankier, hits harder) · Bat Swarm (erratic movement) · Cultist (ranged, punishes standing still) · Ghoul (slow, high HP, area denial).
 - **Elites & bosses:** Alpha Werewolf (mini-boss, can spawn as a room's cycle advances, drops a Burn on kill) · a **Floor Boss** caps each floor's room tree — clearing it opens the next floor; the 4th floor's boss, the **Blood Moon Reaver**, ends the run.
 - **Telegraphed attacks:** dangerous hits (an Alpha's lunge, a Werewolf's howl-marked target) flash or wind up before landing — dodging should be a read-and-react skill, not passive movement.
-- **Density:** baseline enemy counts stay well below the genre's usual screen-filling swarm — real threats you can read, not wallpaper. True swarm chaos is reserved for deliberate spikes (Elite Den, a room's Blood Moon), not the constant state.
+- **Affordance:** an enemy's silhouette and movement should telegraph its role before the player ever reads a tooltip — Feral Wolf reads as fast and fragile at a glance, Ghoul reads as slow and heavy, Cultist's static ranged stance reads as "punishes standing still." Mismatched affordance (a dangerous enemy that looks harmless) undercuts the read-and-react intent above.
+- **Punching bags:** not every enemy needs to be a real threat — Feral Wolf in particular should stay a low-effort kill throughout a run, existing so players can feel their current build actually working rather than white-knuckling every encounter. A room that's nothing but genuine threats stops feeling like a power fantasy and starts feeling like a slog.
+- **Density:** baseline enemy counts stay well below the genre's usual screen-filling swarm — real threats you can read, not wallpaper, keeping the moment-to-moment cognitive load manageable even as the modifier pool and status layer add complexity elsewhere. True swarm chaos is reserved for deliberate spikes (Elite Den, a room's Blood Moon), not the constant state.
 - **Curve:** within a room, driven by its Day → Night (Full Moon) → occasional Blood Moon progression rather than a flat timer alone — each transition escalates the fight, and that difficulty compounds again as you push deeper into a floor's room tree.
 
 ## Floors & Environments
 
-| Floor | Setting | Floor-specific twist |
-| --- | --- | --- |
-| Cursed Forest | Moonlit woods, the starting floor | Open sightlines, gentlest curve — a few loose chokepoints to learn the positioning game |
-| Abandoned Village | Burned-out town | Tight chokepoints and house walls actively shape fights — funnel Werewolves through doorways into Thorns/Blight builds |
-| Moonlit Graveyard | Fog-bound graveyard | Fog thickens further as a room's cycle advances toward night, cutting vision hardest here — terrain awareness matters more than reflexes |
-| Blood Moon Sanctum | Endgame ritual site | Highest base density, built around multiple Ritual Site nodes rather than one — unlocked after clearing the other three once |
+A run always starts at Floor 1 and progresses linearly through Floors 2, 3, and 4 — picking a hunter is the only choice made before a run begins, distinct from the in-run route/checkpoint picker (see Checkpoints & Route System). Each floor is unlocked by clearing the previous one, giving light structure to first-time progression before the game opens up to free floor select for replaying earlier floors directly.
 
-Each floor is unlocked by clearing the previous one, giving light structure to first-time progression before the game opens up to free floor select. Terrain is a deliberate tool everywhere, not just Abandoned Village — every floor should give players a reason to choose *where* to fight, not just *when* to move.
+**Floor room-tree structure:** each floor's room tree is a fixed gauntlet — 3 rooms (each with the normal route-map branching) → **Miniboss Room** → 3 more rooms → **Floor Boss**. The Miniboss Room appears on the route map as the sole option at that point in the tree rather than one of 2–3 choices — reaching it isn't a strategic pick, just the run's next step. Unlike a normal room, it's a dedicated, single-purpose combat space: no standing mob population to clear incrementally, no route-map branching inside it, and little to explore — you're dropped in for one focused fight against the room's miniboss and then move on. **Open:** whether the Miniboss Room runs its own Moon Meter/Day-Night cycle, and whether the miniboss role is filled by the existing Alpha Werewolf or a new enemy per floor, aren't decided yet.
+
+**Pacing rhythm:** the 3-rooms → Miniboss → 3-rooms → Floor Boss shape is a deliberate tension/release cycle, not just a length-padding structure — tension builds across each set of 3 normal rooms (each with its own Moon Meter escalation), spikes and resolves at the Miniboss Room, resets to a calmer baseline, builds again, and spikes harder at the Floor Boss. A floor that was just one long, flat difficulty ramp with no release points would feel exhausting rather than escalating.
+
+**Floor biome pools:** each floor slot doesn't have one fixed setting — it rolls a random biome each run from that slot's own pool, all biomes in a pool being equally likely. Terrain is a deliberate tool everywhere: every biome should give players a reason to choose *where* to fight, not just *when* to move. Natural hazards across every biome are deliberately kept as **friction, not punishment** — a brief slow, stumble, or small damage tick that costs the player a beat of attention, never something severe enough to ruin a run on its own; the goal is a small, constant texture of "pay attention here," not a wall. Interactive objects and buildings are meant to visually anchor a scene and double as cover or a funnel point; traps do minor damage or knockback and can be turned against enemies as often as they threaten the player; puzzles solve with a single attack on the right object — opening a shortcut, a secret room, or granting a small heal, never a multi-step chain.
+
+### Floor 1
+
+| Biome | Setting | Twist |
+| --- | --- | --- |
+| Cursed Forest | Moonlit woods, the starting biome | Open sightlines, gentlest curve — a few loose chokepoints to learn the positioning game |
+| Moonlit Marsh | Waterlogged wetlands | Open sightlines like the Forest, but shallow bog patches add a movement hazard — teaches positioning around terrain before Floor 2's walls do it with geometry |
+| Silver Orchard | A hunter's abandoned homestead | Rows of dead trees form loose natural lanes — a gentler, more structured cousin of the Forest's open ground |
+
+- **Cursed Forest** — *Hazard:* loose roots (brief stumble, no damage). *Object/cover:* a ring of moss-covered standing stones. *Building:* a hunter's shack (chest room); an old watchtower ruin (elevated funnel point). *Trap:* a rusted bear trap — snaps on whoever steps in first, so it's as useful for luring a Wolf onto as it is a hazard to the player. *Puzzle:* strike an overgrown shrine to clear the vines blocking a shortcut.
+- **Moonlit Marsh** — *Hazard:* shallow bog patches (brief movement slow). *Object/cover:* a half-sunk wagon wreck; tall reed clusters soften sightlines around it. *Building:* a stilted fisherman's hut (chest room). *Trap:* a bubbling gas pocket — minor damage or knockback, usable against enemies standing on it. *Puzzle:* strike a rotted piling to collapse a short bridge, exposing a loot cache underneath.
+- **Silver Orchard** — *Hazard:* fallen fruit underfoot (brief slip, no damage). *Object/cover:* a dry stone well at the orchard's center. *Building:* a root cellar (chest room) under a collapsed farmhouse that funnels enemies through one doorway. *Trap:* a rigged scarecrow — topples when struck, minor knockback/damage to anything below it. *Puzzle:* ring the orchard bell to unlock the cellar door.
+
+### Floor 2
+
+| Biome | Setting | Twist |
+| --- | --- | --- |
+| Abandoned Village | Burned-out town | Tight chokepoints and house walls actively shape fights — funnel Werewolves through doorways into Thorns/Blight builds |
+| Frozen Homestead | A snowed-in farm compound | Fences and barns create chokepoints like the Village, but icy patches add a footing hazard on top |
+| Sunken Mill Town | A half-flooded village | The water itself is difficult terrain, pairing naturally with a Flood Room Modifier if one rolls here |
+
+- **Abandoned Village** — *Hazard:* rubble piles (brief slow, no damage). *Object/cover:* an overturned market cart and stalls; a well as a central landmark. *Building:* single-doorway houses (funnel/chest rooms); the church is large enough to double as an Elite Den or Miniboss Room. *Trap:* a hanging lantern rig — shoot it down for a small fire AoE on whatever's underneath. *Puzzle:* strike a boarded-up well to lower the bucket and reveal hidden loot.
+- **Frozen Homestead** — *Hazard:* icy patches (momentary reduced traction, no damage). *Object/cover:* frozen hay bales and a broken sleigh. *Building:* the barn (chest/Miniboss room); the farmhouse (single-door funnel). *Trap:* icicles hanging from the barn eaves — strike them to drop damage on whatever's below. *Puzzle:* shatter a frozen water trough to release warm steam that heals whoever's standing near it.
+- **Sunken Mill Town** — *Hazard:* flooded street sections (brief slow, no damage). *Object/cover:* the half-submerged mill wheel; a beached rowboat. *Building:* the mill (chest room); the sunken chapel (narrow flooded funnel). *Trap:* a rickety plank bridge — collapses under weight, minor fall damage to whoever's on it when it goes. *Puzzle:* strike the mill wheel to open a floodgate, draining a section and exposing a loot cache.
+
+### Floor 3
+
+| Biome | Setting | Twist |
+| --- | --- | --- |
+| Moonlit Graveyard | Fog-bound graveyard | Fog thickens further as a room's cycle advances toward night, cutting vision hardest here — terrain awareness matters more than reflexes |
+| The Catacombs | An underground crypt maze | No fog, but tight sightlines from actual wall geometry instead — the same vision-limited feel, achieved structurally rather than by weather |
+| Witch's Bog | A fog-bound, toxic wetland | Fog plus a lingering toxic haze that pairs with Blight builds, the way the Village pairs with Thorns/Blight |
+
+- **Moonlit Graveyard** — *Hazard:* denser local fog patches (further vision dip, no damage). *Object/cover:* mausoleums and rows of headstones. *Building:* a crypt (chest room); a small chapel (special-enemy encounter room). *Trap:* a creaky iron gate — swings on a strike, knocking back anything caught in its arc. *Puzzle:* strike a cracked tombstone to reveal a hidden staircase shortcut.
+- **The Catacombs** — *Hazard:* uneven floor sections (brief stumble, no damage). *Object/cover:* stacked bone piles and sarcophagi. *Building:* a burial chamber (chest room); a narrow ossuary corridor (funnel). *Trap:* a loose rubble pile — strike it to collapse the passage behind you, sealing off pursuers. *Puzzle:* strike a sealed sarcophagus lid to open a secret passage.
+- **Witch's Bog** — *Hazard:* a toxic haze patch (small DoT tick if lingered). *Object/cover:* gnarled roots and dead trees. *Building:* a witch's hut (chest room); an old watch post (funnel point). *Trap:* a bubbling cauldron — strike it to release a damaging cloud onto enemies caught in it. *Puzzle:* strike a row of hanging charms to dispel a ward blocking the path.
+
+### Floor 4
+
+| Biome | Setting | Twist |
+| --- | --- | --- |
+| Blood Moon Sanctum | Endgame ritual site | Highest base density, built around multiple Ritual Site nodes rather than one |
+| The Hollow Cathedral | A ruined cathedral overrun by the cult | Same endgame density, built around vertical sightlines (balconies, a central nave) instead of ritual-site sprawl |
+| Reaver's Keep | A collapsing castle | Same endgame density, name-tied to the Blood Moon Reaver boss for a thematic capstone |
+
+- **Blood Moon Sanctum** — *Hazard:* drifting ember patches (small damage tick if lingered). *Object/cover:* ritual braziers and standing altar stones. *Building:* ritual chambers (Miniboss/chest rooms); the inner sanctum (boss arena). *Trap:* rigged ritual chains — strike to swing them into anything standing nearby. *Puzzle:* strike the central altar to break a ward sealing off the next Ritual Site.
+- **The Hollow Cathedral** — *Hazard:* crumbling floor sections (brief stumble, no damage). *Object/cover:* rows of pews and pillars; shattered stained glass on the floor is pure scene accent. *Building:* a bell tower (vertical special room); the sacristy (chest room). *Trap:* a hanging chandelier — shoot it down onto whatever's below. *Puzzle:* strike the organ pipes to open a crypt door beneath the altar.
+- **Reaver's Keep** — *Hazard:* small rubble-collapse zones (brief dust burst, no real damage). *Object/cover:* broken battlements and siege debris. *Building:* the armory (chest room); the throne hall (boss antechamber). *Trap:* a rigged portcullis — strike it to drop on pursuing enemies. *Puzzle:* strike the throne room's banner/seal to reveal a hidden passage shortcut.
 
 ## Meta-Progression & Unlocks
 
