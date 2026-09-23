@@ -17,21 +17,6 @@
 - [Platform, Scope & Technical Plan](#platform-scope--technical-plan)
 - [Monetization & Release Plan](#monetization--release-plan)
 
-## Contents
-
-- [Concept & Elevator Pitch](#concept--elevator-pitch)
-- [Core Gameplay Loop](#core-gameplay-loop)
-- [Player Character & Progression](#player-character--progression)
-- [Weapons, Modifiers & Builds](#weapons-modifiers--builds)
-- [Status Effects & Builds](#status-effects--builds)
-- [Checkpoints & Route System](#checkpoints--route-system)
-- [Enemies & Wave Design](#enemies--wave-design)
-- [Floors & Environments](#floors--environments)
-- [Meta-Progression & Unlocks](#meta-progression--unlocks)
-- [Art, Audio & Tone](#art-audio--tone)
-- [Platform, Scope & Technical Plan](#platform-scope--technical-plan)
-- [Monetization & Release Plan](#monetization--release-plan)
-
 ## Concept & Elevator Pitch
 
 **Werewolf Slayer** is a top-down horde-survival roguelite in the Vampire Survivors mold: a cursed hunter stands against endless waves of werewolves and their monstrous kin, armed with a primary weapon they aim themselves, backed by secondary weapons that auto-fire, in a fight built around positioning and reading enemies rather than just circling and holding a direction.
