@@ -5,6 +5,7 @@
 ## Contents
 
 - [Concept & Elevator Pitch](#concept--elevator-pitch)
+- [Design Pillars — What Keeps Players Coming Back](#design-pillars--what-keeps-players-coming-back)
 - [Core Gameplay Loop](#core-gameplay-loop)
 - [Player Character & Progression](#player-character--progression)
 - [Weapons, Modifiers & Builds](#weapons-modifiers--builds)
@@ -26,6 +27,19 @@
 **Premise:** A silver-blooded hunter is bound to a cursed forest that floods with lycanthropes every full moon. Each run pushes across 4 floors, clearing rooms picked one at a time from a route map until each floor's boss falls and the next floor opens.
 
 **The hook — the Moon Meter:** Each room runs its own Moon Meter, filling as you fight — driven by both time and kill count — and driving that room's Day → Night (a full moon) cycle, with an occasional Blood Moon on top. As it climbs, ordinary Wolves begin turning into full Werewolves mid-fight, fog rolls in and reduces vision, and spawn density spikes. Once you've found a room's exit you can leave through it at any time — but the meter keeps climbing the whole time you stay, so it's a constant bet: pull out now with what you've got, or hold out for better loot and rarity at rising risk. This is the risk/reward tension Vampire Survivors doesn't have: killing fast earns XP faster but also fills the meter faster, trading immediate power for a harder fight the longer you push your luck in that room.
+
+## Design Pillars — What Keeps Players Coming Back
+
+These are the retention-driving forces this design is built around — reverse-engineered from Brotato, Risk of Rain (1/2), and Vampire Survivors, then deliberately kept, rejected, or bent to fit Werewolf Slayer's own identity. Every system elsewhere in this doc should trace back to one of these; a system that doesn't serve any of them is a candidate to cut.
+
+- **Legible variance:** every draft (level-up, Shrine, meta unlock) should feel *predictable in shape, surprising in content* — the player always knows a card is coming and roughly what kind of thing it might be, never which specific card. This is what the ~30-entry Modifier pool, rarity tiers, and build-weighted (not pity-system) draws exist to protect (see Weapons, Modifiers & Builds).
+- **Compounding power, not additive power:** a run should read as an acceleration curve — fragile early, screen-warping late — not a flat climb. Synergy Tiers, Might stacking, and Power-scaled VFX are all in service of this; a Modifier pool that leans too hard on flat number-ups undercuts it (see the number-vs-mechanical design principle under Modifiers).
+- **Meta-progression as a safety net against permadeath:** dying should always feel like it banked something — Silver Shards, Unlock Track progress — so a "failed" run still reads as forward motion. This is why meta-progression stays in scope even in the MVP's otherwise stripped-down cut (see Meta-Progression & Unlocks; `mvp-mechanics.md`'s death draft).
+- **Build diversity over content volume:** a new card combination should feel like a new game, not a variation on one. This is the job of Bloodline Signature Cards, the status-effect layer, and Synergy Tiers — cheap replay value that doesn't require new floors or enemies to deliver (see Weapons, Modifiers & Builds; Status Effects & Builds).
+- **Long runs, deliberately — not the genre norm:** unlike Brotato/VS/RoR's 15–30 minute loops, a Werewolf Slayer run spans 4 floors and can run well past an hour. This is a conscious divergence, not an oversight — the tension/release pacing rhythm (3 rooms → Miniboss → 3 rooms → Floor Boss, see Floors & Environments) and the room-level Moon Meter are the tools doing the "one more push" job that a short overall run timer does in the reference games. Exact session-length numbers and restart-cost mitigations are still open (see Core Gameplay Loop).
+- **Density as restraint, not spectacle:** baseline enemy counts stay well below the genre's screen-filling norm on purpose (see Enemies & Wave Design) — the hook here is reading a fight and positioning, not watching a swarm evaporate. This is a deliberate rejection of Vampire Survivors' core spectacle loop in favor of a skill-expression one; true swarm chaos is reserved for deliberate spikes (Elite Den, Blood Moon), not the constant state.
+
+**Open — under active reconsideration:** the Moon Meter, Curse Omens, Room Omens, reward-scaling-by-depth, and Ability Cache's one-way trade are all legible risk/reward toggles stacked on top of each other. Whether all five are meant to coexist at full scope, or whether some should merge or drop once the MVP validates the base loop, isn't decided — worth revisiting as concrete either/or questions once there's a playable build to test against, not settled on paper now.
 
 ## Core Gameplay Loop
 
